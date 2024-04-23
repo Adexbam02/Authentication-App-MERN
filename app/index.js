@@ -4,8 +4,11 @@ import dotenv from 'dotenv';
 
 const connectDB = "../connectDB.js";
 import userRoutes from "./routes/userRoute.js"
+import authRoutes from "./routes/authRoute.js"
 dotenv.config();
 const app = express();
+
+app.use(express.json())
 // connectDB()
 
 mongoose
@@ -20,6 +23,7 @@ mongoose
 
 
 app.use("/app/user", userRoutes)
+app.use("/app/auth", authRoutes)
 
 
 
